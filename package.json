@@ -1,0 +1,19 @@
+{
+   "name": "root",
+   "private": false,
+   "workspaces": [
+      "packages/*"
+   ],
+   "scripts": {
+      "build": "npx lerna run build",
+      "start": "lerna run start"
+   },
+   "devDependencies": {
+      "lerna": "^5.5.2"
+   },
+   "dependencies": {
+      "@tensorflow/tfjs-node": "^3.20.0",
+      "install": "^0.13.0",
+      "npm": "^8.19.2"
+   }
+}
