@@ -8,11 +8,11 @@ const annualReportSections = Object.freeze([{
    heb: 'נסיעות'
 }, {
    id: 3,
-   name: 'חניה',
-   heb: 'parking'
+   name: 'parking',
+   heb: 'חניה'
 }, {
    id: 4,
-   name: 'Office-needs',
+   name: 'OfficeNeeds',
    heb: 'צרכי משרד'
 }, {
    id: 5,
