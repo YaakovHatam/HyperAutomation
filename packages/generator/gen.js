@@ -1,9 +1,8 @@
 import { EOL } from 'os';
 import { annualReportSections, professions } from 'hypera-shared';
-import { writeFileSync } from 'fs';
-import { join } from 'path';
+import { saveFile } from '../storage-conncetor/index.mjs';
 
-const storage = 'C:\\Users\\yaakov\\Documents\\GitHub\\hyperautomation\\data';
+const storageFolder = 'data';
 
 const randomNumberBetween = (min, max) => {
    return Math.floor(Math.random() * (max - min + 1) + min);
@@ -33,4 +32,6 @@ for (let i = 0; i < 20000; i++) {
    })
 }
 const fileText = Object.keys(data[0]).join(',') + EOL + data.map(d => Object.values(d).join(',')).join(EOL);
-writeFileSync(join(storage, 'allData.csv'), fileText);
+
+saveFile(storageFolder, 'allData.csv', fileText);
+

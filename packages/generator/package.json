@@ -8,7 +8,8 @@
       "start": "node gen.js"
    },
    "dependencies": {
-      "hypera-shared": "*"
+      "hypera-shared": "*",
+      "storage-conncetor": "*"
    },
    "keywords": [],
    "author": "",
