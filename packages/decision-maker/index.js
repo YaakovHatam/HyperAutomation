@@ -1,6 +1,6 @@
 import * as tf from '@tensorflow/tfjs-node';
 
-import { ReportsDataset, featureDescriptions } from './data.js';
+import { ReportsDataset } from './data.js';
 import * as normalization from './normalization.js';
 
 const NUM_EPOCHS = 200;
@@ -96,7 +96,7 @@ export function describeKernelElements(kernel) {
       `kernel must be a array of length 12, got ${kernel.length}`);
    const outList = [];
    for (let idx = 0; idx < kernel.length; idx++) {
-      outList.push({ description: featureDescriptions[idx], value: kernel[idx] });
+      outList.push({ description: reportsData.getFeatureDescriptions()[idx], value: kernel[idx] });
    }
    return outList;
 }
@@ -144,7 +144,11 @@ async function start() {
    arraysToTensors();
 
    computeBaseline();
+   const model = linearRegressionModel()
+   await run(model, 'linearRegressionModel');
+
+   model.predict(tf.tensor2d([4, 182327, 1471, 1500, 1595, 1415, 1645])).print(); // 1455
 
 }
 
-start();
+start().then(res => console.log(res));

@@ -10,10 +10,10 @@ const parseCsv = data => {
    const trainRows = Math.floor((lines.length) * 0.8);
 
    const train = lines.splice(0, trainRows);
-   const trainFeatures = train.map(line => line.split(',').slice(0, -1));
-   const trainTarget = train.map(line => line.split(',').slice(-1));
-   const testFeatures = lines.map(line => line.split(',').slice(0, -1));
-   const testTarget = lines.map(line => line.split(',').slice(-1));
+   const trainFeatures = train.map(line => line.split(',').map(v => +v).slice(0, -1));
+   const trainTarget = train.map(line => line.split(',').slice(-1)).map(v => [+v]);
+   const testFeatures = lines.map(line => line.split(',').map(v => +v).slice(0, -1));
+   const testTarget = lines.map(line => line.split(',').slice(-1)).map(v => [+v]);
 
    return [headers, trainFeatures, trainTarget, testFeatures, testTarget];
 };
@@ -22,6 +22,10 @@ export class ReportsDataset {
 
    constructor() {
 
+   }
+
+   getFeatureDescriptions() {
+      return this.featureDescriptions;
    }
 
    async loadData() {
