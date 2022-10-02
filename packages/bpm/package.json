@@ -11,6 +11,7 @@
    "author": "",
    "license": "ISC",
    "dependencies": {
-      "chokidar": "^3.5.3"
+      "chokidar": "^3.5.3",
+      "storage-conncetor": "*"
    }
 }

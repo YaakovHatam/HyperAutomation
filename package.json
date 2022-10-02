@@ -6,7 +6,9 @@
    ],
    "scripts": {
       "build": "npx lerna run build",
-      "start": "lerna run start"
+      "start": "lerna run start",
+      "add": "lerna add \"storage-conncetor\"",
+      "list": "lerna ls"
    },
    "devDependencies": {
       "lerna": "^5.5.2"

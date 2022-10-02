@@ -3,6 +3,7 @@
    "version": "1.0.0",
    "description": "",
    "main": "index.js",
+   "type": "module",
    "scripts": {
       "start": "node index.js"
    },
@@ -11,6 +12,7 @@
    "license": "ISC",
    "dependencies": {
       "@tensorflow/tfjs-node": "^3.20.0",
-      "@tensorflow/tfjs-vis": "^1.5.1"
+      "@tensorflow/tfjs-vis": "^1.5.1",
+      "storage-conncetor": "*"
    }
 }

@@ -1,5 +1,6 @@
 import { join, resolve } from 'path';
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { readFile, writeFile } from 'fs/promises';
+import { existsSync, mkdirSync } from 'fs';
 
 const createDirectoryRecursively = (path) => {
    if (existsSync(path)) {
@@ -9,11 +10,18 @@ const createDirectoryRecursively = (path) => {
    mkdirSync(path);
 }
 
+async function getFile(path, filename) {
+   return resolve(join('./../../', 'storage', path, filename));
+}
+
+function getFileContent(path, filename) {
+   return readFile(join('./../../', 'storage', path, filename), 'utf-8');
+}
 
 function saveFile(path, filename, data) {
    const dir = join('./../../', 'storage', path);
    createDirectoryRecursively(resolve(dir));
-   writeFileSync(join(dir, filename), data);
+   return writeFile(join(dir, filename), data);
 }
 
-export { saveFile }
+export { saveFile, getFile, getFileContent }
